@@ -1,12 +1,21 @@
-<h1>Index#Cocktails</h1>
+<div class="container">
+  <div class="row">
+    <% @cocktails.each do |c| %>
+    <div class="col-xs-12 col-sm-4">
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+         url('<%= cl_image_path c.photo, height: 300, width: 400, crop: :fill %>')">
+          <div class="card-category"><h2><%= c.name %></h2></div>
+            <div class="card-description">
+              <td><%= link_to 'Show', cocktail_path(c),class: "btn btn-primary" %></td>
+              <td><%= link_to 'Edit', edit_cocktail_path(c),class: "btn btn-warning" %></td>
+              <td><%= link_to 'Delete', cocktail_path(c),class: "btn btn-danger", method: :delete %></td>
+            </div>
+        </div>
+        </br>
+    </div>
+    <% end %>
+  </div>
+</div>
 
-<% @cocktails.each do |c| %>
-  <h2><%= c.name %></h2>
-  <td><%= link_to 'Show', cocktail_path(c) %></td>
-  <td><%= link_to 'Edit', edit_cocktail_path(c) %></td>
-  <td><%= link_to 'Delete', cocktail_path(c), method: :delete %></td>
 
 
-<% end %>
-</br>
-<%= link_to 'Add new cocktail', new_cocktail_path %>

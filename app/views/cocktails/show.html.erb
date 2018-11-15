@@ -1,5 +1,5 @@
-<p>
-  <strong>Name:</strong>
+  <%= cl_image_tag @cocktail.photo, height: 100, width: 400, crop: :fill %>
+
   <%= @cocktail.name %>
 
   <ul>
@@ -11,10 +11,9 @@
     </li>
     <% end %>
   </ul>
-
-</p>
 <td>
 <%= link_to 'Destroy', cocktail_path, method: :delete %></td>
 <%= link_to 'Edit', edit_cocktail_path(@cocktail) %> |
 <%= link_to 'Back', cocktails_path %> |
 <%= link_to 'Add Dose', new_cocktail_dose_path(@cocktail) %>
+
